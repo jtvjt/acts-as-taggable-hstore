@@ -10,7 +10,7 @@ everything is added as you would expect.
 === Rails 3.x
 
 To use it, add it to your Gemfile:
-  gem 'acts-as-taggable-hstore' , '~> 0.1.1'
+  gem 'acts-as-taggable-hstore' , '~> 0.0.1'
 
 ==== Post Installation
 
