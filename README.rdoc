@@ -1,0 +1,61 @@
+= ActsAsTaggableHstore
+
+This plugin uses the semantics from ActsAsTaggableOn but uses Hstore to implement the tags. This limits this gem to Postgres databases.
+
+It has a generator for adding the tag column to an existing table. Then you can include the acts_as_taggable_hstore method on the class and 
+everything is added as you would expect.
+
+== Installation
+
+=== Rails 3.x
+
+To use it, add it to your Gemfile:
+  gem 'acts-as-taggable-hstore' , '~> 0.1.1'
+
+==== Post Installation
+
+Each table needs to be modified in order for this to work. Run
+
+1. rails generate acts_as_taggable_hstore:migration TABLENAME
+2. rake db:migrate
+
+== Testing
+
+Acts as Taggable Hstore uses Rspec tests. You can run the usual rake task to test it.
+
+  rake spec
+
+== Usage
+
+First, run the migration for the particular table you want to be taggable. Then
+
+    class Video < ActiveRecord::Base
+      acts_as_taggable
+    end
+
+    @video = Video.new()
+    @video.tag_list = "starcraft 2,gameplay,mlg"
+    @video.save
+
+    @video.tags # => [<Tag name:"starcraft 2">,<Tag name:"gameplay">,<Tag name:"mlg">]
+
+=== Finding Tagged Objects
+
+Acts as Taggable On uses scopes to create associations for tags. It should work with will_paginate as well:
+
+  Video.tagged_vith("starcraft 2")
+
+  #Find a video with all matching tags
+
+  Video.tagged_with(["starcraft 2","mlg"], :match_all => true)
+
+  #Find a video with any matching tags
+  Video.tagged_with(["starcraft 2","mlg"], :any => true)
+
+  #Find videos with no matching tags
+  Video.tagged_with(["starcraft 2","mlg"], :exclude => true)
+
+== Help
+
+== License
+  Copyright @ 2012 Jt Gleason MIT License
