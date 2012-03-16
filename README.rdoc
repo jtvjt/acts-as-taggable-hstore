@@ -52,10 +52,7 @@ Acts as Taggable On uses scopes to create associations for tags. It should work 
   #Find a video with any matching tags
   Video.tagged_with(["starcraft 2","mlg"], :any => true)
 
-  #Find videos with no matching tags
-  Video.tagged_with(["starcraft 2","mlg"], :exclude => true)
-
 == Help
 
 == License
-  Copyright @ 2012 Jt Gleason MIT License
+  Copyright @ 2012 Jt Gleason, TwitchTV MIT License
