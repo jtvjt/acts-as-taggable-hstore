@@ -45,7 +45,7 @@ module ActsAsTaggableHstore::Taggable
         hstore_result = self.send(self.class.tag_hstore_column)
 
         if hstore_result.nil?
-          return []
+          return ""
         end
 
         return hstore_result.keys.join(ActsAsTaggableHstore.glue)
@@ -57,6 +57,9 @@ module ActsAsTaggableHstore::Taggable
       end
 
       def tags
+        if tag_hstore.nil?
+          return []
+        end
         tag_hstore.keys
       end
 

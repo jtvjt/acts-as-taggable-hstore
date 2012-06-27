@@ -4,7 +4,7 @@ require 'acts-as-taggable-hstore/version'
 Gem::Specification.new do |gem|
   gem.name = %q{acts-as-taggable-hstore}
   gem.authors = ["Jt Gleason"]
-  gem.date = %q{2012-02-29}
+  gem.date = %q{2012-06-29}
   gem.description = %q{With ActsAsTaggableHstore, you can tag a single model that uses postgres hstore type}
   gem.summary = "Basic postgres hstore tagging for Rails."
   gem.email = %q{jt@twitch.tv}

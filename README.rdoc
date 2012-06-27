@@ -10,7 +10,7 @@ everything is added as you would expect.
 === Rails 3.x
 
 To use it, add it to your Gemfile:
-  gem 'acts-as-taggable-hstore' , '~> 0.0.1'
+  gem 'acts-as-taggable-hstore' , '~> 0.0.2'
 
 ==== Post Installation
 
@@ -34,10 +34,10 @@ First, run the migration for the particular table you want to be taggable. Then
     end
 
     @video = Video.new()
-    @video.tag_list = "starcraft 2,gameplay,mlg"
+    @video.tag_list = "starcraft 2, gameplay, mlg"
     @video.save
 
-    @video.tags # => [<Tag name:"starcraft 2">,<Tag name:"gameplay">,<Tag name:"mlg">]
+    @video.tags # => ["starcraft 2", "gameplay", "mlg"]
 
 === Finding Tagged Objects
 
@@ -52,7 +52,10 @@ Acts as Taggable On uses scopes to create associations for tags. It should work 
   #Find a video with any matching tags
   Video.tagged_with(["starcraft 2","mlg"], :any => true)
 
+  #Find videos with no matching tags
+  Video.tagged_with(["starcraft 2","mlg"], :exclude => true)
+
 == Help
 
 == License
-  Copyright @ 2012 Jt Gleason, TwitchTV MIT License
+  Copyright @ 2012 Jt Gleason MIT License

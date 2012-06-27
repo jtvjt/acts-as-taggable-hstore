@@ -7,15 +7,21 @@ describe "Taggable" do
     @taggables = [@taggable, TaggableModel.new(:name => "John Doe")]
   end
 
-  it "should return [] right after new" do
+  it "should return tag_list of blank right after new" do
     blank_taggable = TaggableModel.new(:name => "Bob Jones")
-    blank_taggable.tag_list.should == []
+    blank_taggable.tag_list.should == ""
   end
 
-  it "should return [] right after create" do
+  it "should return tag_list of blank right after create" do
     blank_taggable = TaggableModel.create(:name => "Bob Jones")
-    blank_taggable.tag_list.should == []
+    blank_taggable.tag_list.should == ""
   end
+
+  it "should have tags of [] right after create" do
+    blank_taggable = TaggableModel.create(:name => "Bob Jones")
+    blank_taggable.tags.should == []
+  end
+
 
   it "should be able to remove tags through list alone" do
     @taggable.tag_list = "ruby, rails, css"
