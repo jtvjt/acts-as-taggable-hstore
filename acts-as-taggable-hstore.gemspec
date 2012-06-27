@@ -8,7 +8,7 @@ Gem::Specification.new do |gem|
   gem.description = %q{With ActsAsTaggableHstore, you can tag a single model that uses postgres hstore type}
   gem.summary = "Basic postgres hstore tagging for Rails."
   gem.email = %q{jt@twitch.tv}
-  gem.homepage      = ''
+  gem.homepage      = 'https://github.com/jtvjt/acts-as-taggable-hstore'
 
   gem.add_runtime_dependency 'rails', '~> 3.0'
   gem.add_runtime_dependency 'activerecord-postgres-hstore-core', "~> 0.0.4"
